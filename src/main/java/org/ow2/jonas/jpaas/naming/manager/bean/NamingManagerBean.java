@@ -45,6 +45,8 @@ import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Startup;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
@@ -79,6 +81,7 @@ public class NamingManagerBean implements INamingManager {
      * @throws NamingManagerException
      */
     @Override
+    @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
     public String getNewContainerName(String paasConfigurationName) throws NamingManagerException {
         try {
             PaasConfiguration paasConfiguration = iPaasCatalogFacade.getPaasConfiguration(paasConfigurationName);
@@ -99,6 +102,7 @@ public class NamingManagerBean implements INamingManager {
      * @throws NamingManagerException
      */
     @Override
+    @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
     public String getNewRouterName(String paasConfigurationName) throws NamingManagerException {
         try {
             PaasConfiguration paasConfiguration = iPaasCatalogFacade.getPaasConfiguration(paasConfigurationName);
@@ -119,6 +123,7 @@ public class NamingManagerBean implements INamingManager {
      * @throws NamingManagerException
      */
     @Override
+    @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
     public String getNewAgentName(String iaasComputeName) throws NamingManagerException {
         List<IaasComputeVO> iaasComputeList = iSrIaasComputeFacade.findIaasComputes();
         boolean isComputeExist = false;
@@ -143,6 +148,7 @@ public class NamingManagerBean implements INamingManager {
      * @return a name
      */
     @Override
+    @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
     public String getNewComputeName(String iaasConfigurationName) throws NamingManagerException {
         try {
             IaasConfiguration iaasConfiguration = iIaasCatalogFacade.getIaasConfiguration(iaasConfigurationName);
