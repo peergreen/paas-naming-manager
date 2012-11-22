@@ -95,6 +95,11 @@
     </dependency>
   </dependencies>
 
+  <scm>
+    <connection>scm:git:git://gitorious.ow2.org/ow2-jasmine/jpaas-naming-manager.git</connection>
+    <developerConnection>scm:git:git@gitorious.ow2.org:ow2-jasmine/jpaas-naming-manager.git</developerConnection>
+    <url>http://gitorious.ow2.org/ow2-jasmine/jpaas-naming-manager/trees/master</url>
+  </scm>
 
   <build>
     <testResources>
