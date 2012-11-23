@@ -29,7 +29,7 @@
 
   <groupId>org.ow2.jonas.jpaas.naming-manager</groupId>
   <artifactId>jpaas-naming-manager</artifactId>
-  <version>1.0.0-M1</version>
+  <version>1.0.0-M2-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <name>jPaaS :: Naming Manager</name>
 
