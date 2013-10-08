@@ -71,7 +71,7 @@ public class NamingManagerTest {
         Bundle[] bundles = context.getBundles();
         for (Bundle bundle : bundles) {
             if (bundle != null) {
-                if (bundle.getSymbolicName().equals("org.ow2.jonas.jpaas.naming-manager-ejb")) {
+                if (bundle.getSymbolicName().equals("org.ow2.jonas.jpaas.naming-manager.ejb")) {
                     found = true;
                     if (bundle.getState() == Bundle.ACTIVE) {
                         active = true;
