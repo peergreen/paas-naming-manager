@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>jpaas-naming-manager</artifactId>
+        <groupId>org.ow2.jonas.jpaas.naming-manager</groupId>
+        <version>1.0.0-M2-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>naming-manager-ejb</artifactId>
+
+    <name>JPaaS :: Naming Manager : EJB</name>
+    <packaging>bundle</packaging>
+    <description>jPaaS :: Naming Manager : EJB</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.ow2.spec.ee</groupId>
+            <artifactId>ow2-ejb-3.1-spec</artifactId>
+            <version>${ow2-spec.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.spec.ee</groupId>
+            <artifactId>ow2-annotation-1.1-spec</artifactId>
+            <version>${ow2-spec.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.spec.ee</groupId>
+            <artifactId>ow2-jpa-2.0-spec</artifactId>
+            <version>${ow2-spec.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.easybeans.osgi</groupId>
+            <artifactId>easybeans-osgi-annotations</artifactId>
+            <version>${easybeans-osgi-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.jonas.jpaas.catalog</groupId>
+            <artifactId>jpaas-catalog</artifactId>
+            <version>${catalog.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.jonas.jpaas.catalog</groupId>
+            <artifactId>jpaas-catalog</artifactId>
+            <version>${catalog.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.jonas.jpaas.system-representation</groupId>
+            <artifactId>system-representation-vo</artifactId>
+            <version>${sr.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.jonas.jpaas.system-representation</groupId>
+            <artifactId>system-representation-ejb</artifactId>
+            <version>${sr.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.3</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.2.0</version>
+                <extensions>true</extensions>
+                <goals>
+                    <goal>bundle</goal>
+                </goals>
+                <configuration>
+                    <instructions>
+                        <_include>-target/classes/META-INF/${project.artifactId}.bnd</_include>
+                    </instructions>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
