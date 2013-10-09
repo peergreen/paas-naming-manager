@@ -31,13 +31,13 @@ public class CatalogMock implements IIaasCatalogFacade, IPaasCatalogFacade {
         iaasConfigurations = new ArrayList<IaasConfiguration>();
 
         IaasConfiguration iaasConf1 = new IaasConfiguration(
-                "dummyiaas1",
+                "mycompute",
                 "COMPUTE",
                 "DUMMYIAAS",
                 true,
                 false,
                 "src/test/resources/dummyiaas.xml",
-                "DUMMYIAAS-",
+                "COMPUTEIAAS-",
                 new HashMap<String,String>());
         iaasConfigurations.add(iaasConf1);
 
@@ -45,16 +45,28 @@ public class CatalogMock implements IIaasCatalogFacade, IPaasCatalogFacade {
         paasConfigurations = new ArrayList<PaasConfiguration>();
 
         PaasConfiguration paasConf1 = new PaasConfiguration(
-                "dummypaas1",
+                "mycontainer",
                 "CONTAINER",
                 "DUMMYPAAS",
                 true,
                 "src/test/resources/dummypaas.xml",
                 null,
-                "DUMMYPAAS-",
+                "CONTAINERPAAS-",
                 new HashMap<String,String>(),
                 1);
         paasConfigurations.add(paasConf1);
+
+        PaasConfiguration paasConf2 = new PaasConfiguration(
+                "myrouter",
+                "ROUTER",
+                "ROUTERPAAS",
+                true,
+                "src/test/resources/dummypaas.xml",
+                null,
+                "ROUTERPAAS-",
+                new HashMap<String,String>(),
+                1);
+        paasConfigurations.add(paasConf2);
 
 
 

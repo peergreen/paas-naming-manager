@@ -28,6 +28,11 @@ public class SrComputeMock implements ISrIaasComputeFacade {
         logger.info("Started");
 
         iaasComputes = new ArrayList<IaasComputeVO>();
+        IaasComputeVO iaasComputeVO = new IaasComputeVO();
+        iaasComputeVO.setInternalId("1" );
+        iaasComputeVO.setName("mycompute");
+        iaasComputes.add(iaasComputeVO);
+
     }
     @Override
     public IaasComputeVO createIaasCompute(IaasComputeVO iaasComputeVO) {

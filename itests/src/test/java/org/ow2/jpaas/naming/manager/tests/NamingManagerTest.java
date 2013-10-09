@@ -27,7 +27,7 @@ import static org.ops4j.pax.exam.CoreOptions.*;
 @ExamReactorStrategy(PerClass.class)
 public class NamingManagerTest {
 
-    public static  final String PROJECT_VERSION="1.0.0-M2-SNAPSHOT";
+    public static final String PROJECT_VERSION = "1.0.0-M2-SNAPSHOT";
 
 
     @Inject
@@ -59,6 +59,7 @@ public class NamingManagerTest {
     public void checkInjectContext() {
         assertNotNull(context);
     }
+
     @Test
     public void checkInjectNamingManager() {
         assertNotNull(namingManager);
@@ -88,16 +89,109 @@ public class NamingManagerTest {
         String name = null;
 
         try {
-            name = namingManager.getNewContainerName("dummypaas1")  ;
+            name = namingManager.getNewContainerName("mycontainer");
         } catch (NamingManagerException e) {
             fail(e.getMessage());
         }
 
         System.out.println("name=" + name);
         assertNotNull(name);
-        assertTrue(name.startsWith("DUMMYPAAS-")) ;
+        assertTrue(name.startsWith("CONTAINERPAAS-"));
 
     }
 
+    @Test
+    public void getNewRouterName() {
+        String name = null;
+
+        try {
+            name = namingManager.getNewRouterName("myrouter");
+        } catch (NamingManagerException e) {
+            fail(e.getMessage());
+        }
+
+        System.out.println("name=" + name);
+        assertNotNull(name);
+        assertTrue(name.startsWith("ROUTERPAAS-"));
+
+    }
+
+    @Test
+    public void getNewAgentName() {
+        String name = null;
+
+        try {
+            name = namingManager.getNewAgentName("mycompute");
+        } catch (NamingManagerException e) {
+            fail(e.getMessage());
+        }
+
+        System.out.println("name=" + name);
+        assertNotNull(name);
+        assertTrue(name.startsWith("agent-mycompute-"));
+
+    }
+
+    @Test
+    public void getNewComputeName() {
+        String name = null;
+
+        try {
+            name = namingManager.getNewComputeName("mycompute");
+        } catch (NamingManagerException e) {
+            fail(e.getMessage());
+        }
+
+        System.out.println("name=" + name);
+        assertNotNull(name);
+        assertTrue(name.startsWith("COMPUTEIAAS-"));
+
+    }
+
+    @Test
+    public void getDefaultVhostName() {
+        String name = null;
+        name = namingManager.getDefaultVhostName("myapp");
+        System.out.println("name=" + name);
+        assertNotNull(name);
+        assertTrue(name.endsWith(".jpaas.org"));
+    }
+
+    @Test
+    public void getDefaultConnectorName() {
+        String name = null;
+        name = namingManager.getDefaultConnectorName("myrouter", "mycontainer");
+        System.out.println("name=" + name);
+        assertNotNull(name);
+        assertTrue(name.startsWith("connector-"));
+    }
+
+    @Test
+    public void getDefaultWorkerName() {
+        String name = null;
+        name = namingManager.getDefaultWorkerName("myrouter", "mycontainer");
+        System.out.println("name=" + name);
+        assertNotNull(name);
+        assertTrue(name.startsWith("wk-"));
+    }
+
+    @Test
+    public void getDefaultLbName() {
+        String name = null;
+        name = namingManager.getDefaultLbName("myapp");
+        System.out.println("name=" + name);
+        assertNotNull(name);
+        assertTrue(name.startsWith("lb-"));
+    }
+
+
+    @Test
+    public void getDefaultDatasourceName() {
+        String name = null;
+        name = namingManager.getDefaultDatasourceName("myds");
+        System.out.println("name=" + name);
+        assertNotNull(name);
+        assertTrue(name.startsWith("datasource-"));
+    }
 
 }
