@@ -38,12 +38,7 @@
         </dependency>
         <dependency>
             <groupId>org.ow2.jonas.jpaas.catalog</groupId>
-            <artifactId>jpaas-catalog</artifactId>
-            <version>${catalog.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ow2.jonas.jpaas.catalog</groupId>
-            <artifactId>jpaas-catalog</artifactId>
+            <artifactId>jpaas-catalog-api</artifactId>
             <version>${catalog.version}</version>
         </dependency>
         <dependency>
