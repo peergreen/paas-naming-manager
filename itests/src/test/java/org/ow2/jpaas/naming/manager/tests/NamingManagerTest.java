@@ -27,7 +27,7 @@ import static org.ops4j.pax.exam.CoreOptions.*;
 @ExamReactorStrategy(PerClass.class)
 public class NamingManagerTest {
 
-    public static final String PROJECT_VERSION = "1.0.0-M2-SNAPSHOT";
+    public static final String PROJECT_VERSION = "1.0.0-M1-SNAPSHOT";
 
 
     @Inject
@@ -47,11 +47,11 @@ public class NamingManagerTest {
         root.setLevel(Level.INFO);
 
         return options(systemProperty("org.ops4j.pax.logging.DefaultServiceLog.level").value("WARN"),
-                mavenBundle("org.ow2.jonas.jpaas.system-representation", "system-representation-vo").version(PROJECT_VERSION),
-                mavenBundle("org.ow2.jonas.jpaas.system-representation", "system-representation-api").version(PROJECT_VERSION),
-                mavenBundle("org.ow2.jonas.jpaas.catalog", "jpaas-catalog-api").version(PROJECT_VERSION),
-                mavenBundle("org.ow2.jonas.jpaas.naming-manager", "naming-manager-external-mocks").version(PROJECT_VERSION),
-                mavenBundle("org.ow2.jonas.jpaas.naming-manager", "naming-manager-ejb").version(PROJECT_VERSION),
+                mavenBundle("com.peergreen.paas", "paas-system-representation-vo").version(PROJECT_VERSION),
+                mavenBundle("com.peergreen.paas", "paas-system-representation-api").version(PROJECT_VERSION),
+                mavenBundle("com.peergreen.paas", "paas-catalog-api").version(PROJECT_VERSION),
+                mavenBundle("com.peergreen.paas", "paas-naming-manager-external-mocks").version(PROJECT_VERSION),
+                mavenBundle("com.peergreen.paas", "paas-naming-manager-ejb").version(PROJECT_VERSION),
                 junitBundles());
     }
 
@@ -72,7 +72,7 @@ public class NamingManagerTest {
         Bundle[] bundles = context.getBundles();
         for (Bundle bundle : bundles) {
             if (bundle != null) {
-                if (bundle.getSymbolicName().equals("org.ow2.jonas.jpaas.naming-manager.ejb")) {
+                if (bundle.getSymbolicName().equals("com.peergreen.paas.naming-manager-ejb")) {
                     found = true;
                     if (bundle.getState() == Bundle.ACTIVE) {
                         active = true;
